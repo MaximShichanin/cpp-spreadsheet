@@ -83,7 +83,7 @@ public:
     using Value = std::variant<std::string, double, FormulaError>;
 
     virtual ~CellInterface() = default;
-
+    virtual void Set(std::string text) = 0;
     // Возвращает видимое значение ячейки.
     // В случае текстовой ячейки это её текст (без экранирующих символов). В
     // случае формулы - числовое значение формулы или сообщение об ошибке.

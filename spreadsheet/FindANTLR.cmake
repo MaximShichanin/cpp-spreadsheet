@@ -2,8 +2,10 @@ find_package(Java QUIET COMPONENTS Runtime)
 
 if(NOT ANTLR_EXECUTABLE)
   find_program(ANTLR_EXECUTABLE
-               NAMES antlr.jar antlr4.jar antlr-4.jar antlr-4.7.2-complete.jar)
+               NAMES antlr.jar antlr4.jar antlr-4.jar antlr-4.10.1-complete.jar)
 endif()
+
+#set(ANTLR_EXECUTABLE "/home/maxim/C/C++/ANTLR/antlr-4.10.1-complete.jar")
 
 if(ANTLR_EXECUTABLE AND Java_JAVA_EXECUTABLE)
   execute_process(
@@ -13,8 +15,8 @@ if(ANTLR_EXECUTABLE AND Java_JAVA_EXECUTABLE)
       RESULT_VARIABLE ANTLR_COMMAND_RESULT
       OUTPUT_STRIP_TRAILING_WHITESPACE)
 
-  if(ANTLR_COMMAND_RESULT EQUAL 0)
-    string(REGEX MATCH "Version [0-9]+(\\.[0-9])*" ANTLR_VERSION ${ANTLR_COMMAND_OUTPUT})
+  if(ANTLR_COMMAND_RESULT EQUAL 0) 
+    string(REGEX MATCH "Version [0-9]+(\\.[0-9][0-9])(\\.[0-9])*" ANTLR_VERSION ${ANTLR_COMMAND_OUTPUT})
     string(REPLACE "Version " "" ANTLR_VERSION ${ANTLR_VERSION})
   else()
     message(
