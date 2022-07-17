@@ -17,8 +17,8 @@ To build the app follow steps:
 0. mkdir ./build
 1. cmake ../spreadsheet -DCMAKE_BUILD_TYPE=Release
 2. cmake --build ./
-If you need Debug version, use -DCMAKE_BUILD_TYPE=Degug flag.
-Make shure that you have permissions to create files in your working
+If you need Debug version, use -DCMAKE_BUILD_TYPE=Debug flag.
+Make sure that you have permissions to create files in your working
 directory.
 Program has been built successfully on Ubuntu/Linux 22.04 with
 gcc version 11.2.0, but other gcc versions, that are compatible with C++17
